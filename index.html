@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NEXUS: route energy from the source to every target in a neon puzzle network.">
+<title>NEXUS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header class="top">
+  <h1 class="logo">NEXUS</h1>
+  <p class="chip">Level <b id="levelLbl">1</b></p>
+  <p class="chip">Score <b id="score">0</b></p>
+  <div class="top-actions">
+    <button id="soundBtn" class="icon" aria-pressed="false" aria-label="Sound off" title="Sound">🔇</button>
+    <button id="themeBtn" class="icon" aria-label="Switch theme" title="Theme">◐</button>
+    <button id="settingsBtn" class="icon" aria-label="Settings" title="Settings">⚙</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="stage" aria-label="Game board">
+    <div class="stage-head">
+      <p id="objective" class="objective" aria-live="polite"></p>
+      <p class="chip">Moves <b id="moves">0</b><span id="limit"></span></p>
+    </div>
+    <div class="board-wrap">
+      <svg id="board" role="group" aria-label="Network board"></svg>
+      <div id="pauseVeil" class="veil" hidden>Paused</div>
+    </div>
+  </section>
+
+  <aside class="side">
+    <section class="panel controls" aria-label="Controls">
+      <button id="startBtn" class="go">START FLOW</button>
+      <div class="row">
+        <button id="undoBtn">Undo</button>
+        <button id="resetBtn">Reset</button>
+        <button id="hintBtn">Hint</button>
+        <button id="pauseBtn" aria-pressed="false">Pause</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Progress">
+      <dl class="stats">
+        <div><dt>Best</dt><dd id="best">0</dd></div>
+        <div><dt>Combo</dt><dd id="combo">x1</dd></div>
+        <div><dt>Time</dt><dd id="time">–</dd></div>
+      </dl>
+      <div class="bar" role="progressbar" aria-label="Campaign progress" aria-valuemin="0" aria-valuemax="15" id="barWrap"><i id="bar"></i></div>
+    </section>
+
+    <section class="panel" aria-label="Game modes">
+      <h2>Mode</h2>
+      <div id="modes" class="modes"></div>
+      <div id="picker" class="picker" aria-label="Campaign levels"></div>
+    </section>
+  </aside>
+</main>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+<dialog id="settings">
+  <form method="dialog">
+    <h2>Settings</h2>
+    <label><input type="checkbox" id="optPreview"> Preview energy path</label>
+    <label><input type="checkbox" id="optMotion"> Reduce motion</label>
+    <button class="go">Done</button>
+  </form>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
